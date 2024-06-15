@@ -1,0 +1,13 @@
+.ljv-raw {
+  display: none; }
+
+.ljv-toggle-raw {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e83561;
+  cursor: pointer; }
+  .ljv-toggle-raw i {
+    font-size: 16px; }
+  .ljv-toggle-raw:hover {
+    color: #d21846; }
