@@ -1,5 +1,6 @@
 .ljv-raw {
-  display: none; }
+  display: none;
+  word-break: break-word; }
 
 .ljv-toggle-raw {
   padding: 0;

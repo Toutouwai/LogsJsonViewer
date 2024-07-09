@@ -3,7 +3,7 @@
 $info = array(
 	'title' => 'Logs JSON Viewer',
 	'summary' => 'Formats JSON data in ProcessLogger for improved readability.',
-	'version' => '0.1.0',
+	'version' => '0.1.1',
 	'author' => 'Robin Sallis',
 	'href' => 'https://github.com/Toutouwai/LogsJsonViewer',
 	'icon' => 'indent',

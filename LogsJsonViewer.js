@@ -6,29 +6,45 @@ $(document).ready(function() {
 
 	// Init json-viewer
 	function initJsonViewer() {
-		$('#ProcessLogPage td').each(function(i, el) {
-			const str = $(this).html();
-			if(isJson(str)) {
-				const json_viewer = document.createElement("andypf-json-viewer");
-				for(const prop in jv_options) {
-					json_viewer[prop] = jv_options[prop];
+		let max_json_cols = 0;
+		$('#ProcessLogPage tr').each(function(i, el) {
+			let json_cols = 0;
+			$(this).find('td').each(function(i, el) {
+				const str = $(this).html();
+				if(isJson(str)) {
+					json_cols++;
+					const json_viewer = document.createElement("andypf-json-viewer");
+					for(const prop in jv_options) {
+						json_viewer[prop] = jv_options[prop];
+					}
+					json_viewer.data = str;
+					$(this).addClass('ljv-cell');
+					$(this).wrapInner('<div class="ljv-raw"></div>');
+					$(this).append(json_viewer);
+					$(this).append(`<button type="button" class="ljv-toggle-raw"><i class="fa fa-toggle-on"></i> ${labels.toggle_raw}</button>`);
 				}
-				json_viewer.data = str;
-				$(this).css('width', ProcessWire.config.LogsJsonViewer.col_width + '%');
-				$(this).wrapInner('<div class="ljv-raw"></div>');
-				$(this).append(json_viewer);
-				$(this).append(`<button type="button" class="ljv-toggle-raw"><i class="fa fa-toggle-on"></i> ${labels.toggle_raw}</button>`);
-			}
+				if(json_cols > max_json_cols) max_json_cols = json_cols;
+			});
 		});
+		// Divide JSON column width by the max number of JSON columns per row and apply
+		if(max_json_cols) {
+			const cell_width = ProcessWire.config.LogsJsonViewer.col_width / max_json_cols;
+			$('.ljv-cell').css('width', cell_width + '%');
+		}
 	}
 
 	// Is the given string JSON?
 	function isJson(str) {
-		if(!str.startsWith('{') || !str.endsWith('}')) return false;
-		try {
-			JSON.parse(str);
-			return true;
-		} catch(e) {
+		const first_char = str.charAt(0);
+		const last_char = str.charAt(str.length - 1);
+		if(first_char === '{' && last_char === '}' || first_char === '[' && last_char === ']') {
+			try {
+				JSON.parse(str);
+				return true;
+			} catch(e) {
+				return false;
+			}
+		} else {
 			return false;
 		}
 	}

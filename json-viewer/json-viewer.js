@@ -1,6 +1,6 @@
 // https://github.com/andypf/json-viewer/
 // Code unminified from https://github.com/andypf/json-viewer/blob/main/dist/iife/index.js
-// 15/06/2024, with RPS mod
+// 09/07/2024, with RPS mod
 
 (() => {
 	var ne = Object.defineProperty;
@@ -12,16 +12,16 @@
 	}) : a[t] = e;
 	var Z = (a, t, e) => (re(a, typeof t != "symbol" ? t + "" : t, e), e),
 		G = (a, t, e) => {
-			if (!t.has(a)) throw TypeError("Cannot " + e)
+			if(!t.has(a)) throw TypeError("Cannot " + e)
 		};
 	var o = (a, t, e) => (G(a, t, "read from private field"), e ? e.call(a) : t.get(a)),
-		S = (a, t, e) => {
-			if (t.has(a)) throw TypeError("Cannot add the same private member more than once");
+		$ = (a, t, e) => {
+			if(t.has(a)) throw TypeError("Cannot add the same private member more than once");
 			t instanceof WeakSet ? t.add(a) : t.set(a, e)
 		},
-		T = (a, t, e, c) => (G(a, t, "write to private field"), c ? c.call(a, e) : t.set(a, e), e);
+		q = (a, t, e, c) => (G(a, t, "write to private field"), c ? c.call(a, e) : t.set(a, e), e);
 	// RPS mod: .search-input font-family
-	var K = `.container{background-color:var(--base00);color:var(--base05);padding:10px;letter-spacing:0.5px;font-family:monospace;border-radius:3px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:5px;border-bottom:solid 1px var(--base02)}.toolbar .options,.toolbar .search-wrapper{display:flex;align-items:center}.toolbar .icon-wrapper{height:15px;display:flex;align-items:center;padding:2px 5px}.toolbar .icon-wrapper:hover{background-color:var(--base02);border-radius:3px}.toolbar .icon-wrapper:first-child{margin-left:0px}.toolbar .search.icon{margin-right:5px}.toolbar .search-input{border:none;background:transparent;outline:none;flex:1;font-family:monospace;font-size:16px;color:var(--base0D)}.match{background-color:yellow;font-weight:bold;color:red}.data-row{padding:3px 0}.data-row .data-row{border-left:solid 1px var(--base02);padding-left:20px;margin-left:5px;display:none}.data-row.expanded>.data-row{display:block}.data-row .key-value-wrapper{display:flex;align-items:center}.data-row .key{color:var(--base07)}.data-row .key.number{color:var(--base0C)}.data-row .colon{color:var(--base07);margin:0 5px}.clickable{cursor:pointer}.data-row .opening-parenthesis,.data-row .closing-parenthesis{color:var(--base07)}.data-row .ellipsis{color:var(--base09)}.data-row.expanded>.key-value-wrapper .closing-parenthesis,.data-row.expanded>.key-value-wrapper .ellipsis{display:none}.data-row>.closing-parenthesis{display:none}.data-row.expanded>.closing-parenthesis{display:inline-block}.data-row .items-size{margin-left:10px;color:var(--base04);font-style:italic;display:none}.show-size .data-row .items-size{display:inline-block}.data-row .value.bool,.data-row .value.boolean{color:var(--base0E)}.data-row .value.function{color:var(--base0D)}.data-row .value.int,.data-row .value.integer{color:var(--base0F)}.data-row .value.float{color:var(--base0B)}.data-row .value.string{color:var(--base09)}.data-row .value.string .content{overflow-wrap:break-word}.data-row .value.string .content::before{content:open-quote}.data-row .value.string .content::after{content:close-quote}.data-row .value.regexp{color:var(--base0A)}.data-row .value.nan{color:var(--base08)}.data-row .value.null{color:var(--base0A)}.data-row .value.undefined{color:var(--base05)}.data-row .value.date{color:var(--base0D)}.data-row .value.nan,.data-row .value.null,.data-row .value.undefined{border-radius:3px;background-color:var(--base02);padding:1px 2px}.data-row .value .type{font-size:smaller;margin-right:4px;opacity:0.8;display:none}.show-data-types .data-row .value .type{display:inline-block}.icon-wrapper,.copy-icon-wrapper{display:inline-block;cursor:pointer}.icon{display:block;position:relative}.icon:before,.icon:after{content:"";position:absolute;display:block}.expand.icon{margin-right:5px}.expand-icon-arrow .expand.icon{margin-left:3px;width:0;height:0;border-left:solid 6px var(--base0E);border-top:solid 6px transparent;border-bottom:solid 6px transparent}.expand-icon-arrow .expanded>.key-value-wrapper .expand.icon,.expand-icon-arrow .expanded.icon.expand{transform:rotate(90deg);border-left-color:var(--base0D)}.expand-icon-square .expand.icon,.expand-icon-circle .expand.icon{display:block;width:9px;height:9px;border-radius:2px;border:solid 1px var(--base0E)}.expand-icon-circle .expand.icon{border-radius:50%}.expand-icon-square .expand.icon:before,.expand-icon-circle .expand.icon:before,.expand-icon-square .expand.icon:after,.expand-icon-circle .expand.icon:after{width:5px;height:1px;background-color:var(--base0E);left:2px;top:4px}.expand-icon-square .expand.icon:after,.expand-icon-circle .expand.icon:after{transform:rotate(90deg)}.expand-icon-square .expanded>.key-value-wrapper .expand.icon:after,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon:after,.expand-icon-square .expand.icon.expanded:after,.expand-icon-circle .expand.icon.expanded:after{display:none}.expand-icon-square .expanded>.key-value-wrapper .expand.icon,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon,.expand-icon-square .expand.icon.expanded,.expand-icon-circle .expanded.expand.icon{border-color:var(--base0D)}.expand-icon-square .expanded>.key-value-wrapper .expand.icon:before,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon:before,.expand-icon-square .expanded.expand.icon:before,.expand-icon-circle .expanded.expand.icon:before{background-color:var(--base0D)}.icon-wrapper{display:inline-block;cursor:pointer}.show-copy .key-value-wrapper:hover .icon.copy{display:block}.copy.icon{margin-left:10px;display:none;width:8px;height:10px;border:solid 1px var(--base0D);border-radius:1px;position:relative;top:4px;transition:0.2s all}.copy.icon:active{transform:scale(1.6);background-color:var(--base0B)}.copy.icon:before{content:"";display:block;left:-3px;top:-3px;width:8px;height:10px;border-top:solid 1px var(--base0D);border-left:solid 1px var(--base0D);border-radius:1px 0 0 0}.plus.icon{width:11px;height:1px;background-color:var(--base0D)}.plus.icon:after{content:'';width:11px;height:1px;background-color:var(--base0D);-webkit-transform:rotate(90deg);transform:rotate(90deg)}.minus.icon{width:11px;height:1px;background-color:var(--base0D)}.indent.icon{color:var(--base0D);width:17px;height:8px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.indent.icon:before{content:'';position:absolute;top:2px;right:0;width:11px;height:2px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.indent.icon:after{content:'';position:absolute;top:1px;width:0;height:0;border-top:solid 3px transparent;border-bottom:solid 3px transparent;border-left:solid 3px var(--base0D);border-right:solid 3px transparent}.outdent.icon{color:var(--base0D);margin-left:2px;width:17px;height:8px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.outdent.icon:before{content:'';top:2px;right:0;width:11px;height:2px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.outdent.icon:after{content:'';top:1px;left:-3px;width:0;height:0;border-top:solid 3px transparent;border-bottom:solid 3px transparent;border-left:solid 3px transparent;border-right:solid 3px var(--base0D)}.refresh.icon{color:var(--base0D);width:10px;height:10px;border-radius:50%;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D);border-left:solid 1px transparent;border-right:solid 1px var(--base0D)}.refresh.icon:before{content:'';left:1px;top:8px;width:3px;height:3px;border-top:solid 1px var(--base0D);border-left:solid 1px var(--base0D);-webkit-transform:rotate(-22.5deg);transform:rotate(-22.5deg)}.info.icon{width:12px;height:11px;border:solid 1px var(--base0D);border-radius:2px}.info.icon::before{top:5px;left:5px;width:2px;height:5px;background-color:var(--base0D)}.info.icon::after{top:2px;left:5px;width:2px;height:2px;background-color:var(--base0D)}.info.icon.active{background-color:var(--base0D)}.info.icon.active::before,.info.icon.active::after{background-color:var(--base02)}.search.icon{color:var(--base0D);width:11px;height:11px;border:solid 1px var(--base0D);border-radius:100%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.search.icon:before{content:'';top:11px;left:5px;height:6px;width:1px;background-color:var(--base0D)}
+	var K = `.container{background-color:var(--base00);color:var(--base05);padding:10px;letter-spacing:0.5px;font-family:monospace;border-radius:3px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:5px;border-bottom:solid 1px var(--base02)}.toolbar .options,.toolbar .search-wrapper{display:flex;align-items:center}.toolbar .icon-wrapper{height:15px;display:flex;align-items:center;padding:2px 5px}.toolbar .icon-wrapper:hover{background-color:var(--base02);border-radius:3px}.toolbar .icon-wrapper:first-child{margin-left:0px}.toolbar .search.icon{margin-right:5px}.toolbar .search-input{font-family:monospace;border:none;background:transparent;outline:none;flex:1;font-size:16px;color:var(--base0D)}.match{background-color:yellow;font-weight:bold;color:red}.data-row{padding:3px 0}.data-row .data-row{border-left:solid 1px var(--base02);padding-left:20px;margin-left:5px;display:none}.data-row.expanded>.data-row{display:block}.data-row .key-value-wrapper{display:flex;align-items:center}.data-row .key{color:var(--base07)}.data-row .key.number{color:var(--base0C)}.data-row .colon{color:var(--base07);margin:0 5px}.clickable{cursor:pointer}.data-row .opening-parenthesis,.data-row .closing-parenthesis{color:var(--base07)}.data-row .ellipsis{color:var(--base09)}.data-row.expanded>.key-value-wrapper .closing-parenthesis,.data-row.expanded>.key-value-wrapper .ellipsis{display:none}.data-row>.closing-parenthesis{display:none}.data-row.expanded>.closing-parenthesis{display:inline-block}.data-row .items-size{margin-left:10px;color:var(--base04);font-style:italic;display:none}.show-size .data-row .items-size{display:inline-block}.data-row .value.bool,.data-row .value.boolean{color:var(--base0E)}.data-row .value.function{color:var(--base0D)}.data-row .value.int,.data-row .value.integer{color:var(--base0F)}.data-row .value.float{color:var(--base0B)}.data-row .value.string{color:var(--base09)}.data-row .value.string .content{overflow-wrap:break-word}.data-row .value.string .content::before{content:open-quote}.data-row .value.string .content::after{content:close-quote}.data-row .value.regexp{color:var(--base0A)}.data-row .value.nan{color:var(--base08)}.data-row .value.null{color:var(--base0A)}.data-row .value.undefined{color:var(--base05)}.data-row .value.date{color:var(--base0D)}.data-row .value.nan,.data-row .value.null,.data-row .value.undefined{border-radius:3px;background-color:var(--base02);padding:1px 2px}.data-row .value .type{font-size:smaller;margin-right:4px;opacity:0.8;display:none}.show-data-types .data-row .value .type{display:inline-block}.icon-wrapper,.copy-icon-wrapper{display:inline-block;cursor:pointer}.icon{display:block;position:relative}.icon:before,.icon:after{content:"";position:absolute;display:block}.expand.icon{margin-right:5px}.expand-icon-arrow .expand.icon{margin-left:3px;width:0;height:0;border-left:solid 6px var(--base0E);border-top:solid 6px transparent;border-bottom:solid 6px transparent}.expand-icon-arrow .expanded>.key-value-wrapper .expand.icon,.expand-icon-arrow .expanded.icon.expand{transform:rotate(90deg);border-left-color:var(--base0D)}.expand-icon-square .expand.icon,.expand-icon-circle .expand.icon{display:block;width:9px;height:9px;border-radius:2px;border:solid 1px var(--base0E)}.expand-icon-circle .expand.icon{border-radius:50%}.expand-icon-square .expand.icon:before,.expand-icon-circle .expand.icon:before,.expand-icon-square .expand.icon:after,.expand-icon-circle .expand.icon:after{width:5px;height:1px;background-color:var(--base0E);left:2px;top:4px}.expand-icon-square .expand.icon:after,.expand-icon-circle .expand.icon:after{transform:rotate(90deg)}.expand-icon-square .expanded>.key-value-wrapper .expand.icon:after,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon:after,.expand-icon-square .expand.icon.expanded:after,.expand-icon-circle .expand.icon.expanded:after{display:none}.expand-icon-square .expanded>.key-value-wrapper .expand.icon,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon,.expand-icon-square .expand.icon.expanded,.expand-icon-circle .expanded.expand.icon{border-color:var(--base0D)}.expand-icon-square .expanded>.key-value-wrapper .expand.icon:before,.expand-icon-circle .expanded>.key-value-wrapper .expand.icon:before,.expand-icon-square .expanded.expand.icon:before,.expand-icon-circle .expanded.expand.icon:before{background-color:var(--base0D)}.icon-wrapper{display:inline-block;cursor:pointer}.show-copy .key-value-wrapper:hover .icon.copy{display:block}.copy.icon{margin-left:10px;display:none;width:8px;height:10px;border:solid 1px var(--base0D);border-radius:1px;position:relative;top:4px;transition:0.2s all}.copy.icon:active{transform:scale(1.6);background-color:var(--base0B)}.copy.icon:before{content:"";display:block;left:-3px;top:-3px;width:8px;height:10px;border-top:solid 1px var(--base0D);border-left:solid 1px var(--base0D);border-radius:1px 0 0 0}.plus.icon{width:11px;height:1px;background-color:var(--base0D)}.plus.icon:after{content:'';width:11px;height:1px;background-color:var(--base0D);-webkit-transform:rotate(90deg);transform:rotate(90deg)}.minus.icon{width:11px;height:1px;background-color:var(--base0D)}.indent.icon{color:var(--base0D);width:17px;height:8px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.indent.icon:before{content:'';position:absolute;top:2px;right:0;width:11px;height:2px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.indent.icon:after{content:'';position:absolute;top:1px;width:0;height:0;border-top:solid 3px transparent;border-bottom:solid 3px transparent;border-left:solid 3px var(--base0D);border-right:solid 3px transparent}.outdent.icon{color:var(--base0D);margin-left:2px;width:17px;height:8px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.outdent.icon:before{content:'';top:2px;right:0;width:11px;height:2px;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D)}.outdent.icon:after{content:'';top:1px;left:-3px;width:0;height:0;border-top:solid 3px transparent;border-bottom:solid 3px transparent;border-left:solid 3px transparent;border-right:solid 3px var(--base0D)}.refresh.icon{color:var(--base0D);width:10px;height:10px;border-radius:50%;border-top:solid 1px var(--base0D);border-bottom:solid 1px var(--base0D);border-left:solid 1px transparent;border-right:solid 1px var(--base0D)}.refresh.icon:before{content:'';left:1px;top:8px;width:3px;height:3px;border-top:solid 1px var(--base0D);border-left:solid 1px var(--base0D);-webkit-transform:rotate(-22.5deg);transform:rotate(-22.5deg)}.info.icon{width:12px;height:11px;border:solid 1px var(--base0D);border-radius:2px}.info.icon::before{top:5px;left:5px;width:2px;height:5px;background-color:var(--base0D)}.info.icon::after{top:2px;left:5px;width:2px;height:2px;background-color:var(--base0D)}.info.icon.active{background-color:var(--base0D)}.info.icon.active::before,.info.icon.active::after{background-color:var(--base02)}.search.icon{color:var(--base0D);width:11px;height:11px;border:solid 1px var(--base0D);border-radius:100%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.search.icon:before{content:'';top:11px;left:5px;height:6px;width:1px;background-color:var(--base0D)}
 `;
 	var F = {
 			apathy: ["#031a16", "#0b342d", "#184e45", "#2b685e", "#5f9c92", "#81b5ac", "#a7cec8", "#d2e7e4", "#3e9688", "#3e7996", "#3e4c96", "#883e96", "#963e4c", "#96883e", "#4c963e", "#3e965b"],
@@ -106,10 +106,10 @@
 		le = Object.keys(F),
 		Q = a => {
 			let t;
-			if (typeof a == "string") {
-				if (F[a] === void 0) throw new Error(`${a} not found`);
-				t = F[a].reduce((e, c, f) => {
-					let d = `base0${f.toString(16).toUpperCase()}`;
+			if(typeof a == "string") {
+				if(F[a] === void 0) throw new Error(`${a} not found`);
+				t = F[a].reduce((e, c, r) => {
+					let d = `base0${r.toString(16).toUpperCase()}`;
 					return e[d] = c, e
 				}, {})
 			} else t = a;
@@ -123,37 +123,37 @@
 			}
 		},
 		Y = a => {
-			if (Array.isArray(a)) return "array";
-			if (a === null) return "null";
-			if (a instanceof RegExp) return "regexp";
+			if(Array.isArray(a)) return "array";
+			if(a === null) return "null";
+			if(a instanceof RegExp) return "regexp";
 			let t = typeof a;
 			return t === "number" ? isNaN(a) ? "NaN" : isFinite(a) ? Number.isInteger(a) ? "int" : "float" : "Infinity" : t === "boolean" ? "bool" : t === "object" && a instanceof Date ? "date" : t
 		};
 	var J = a => {
-			if (typeof a == "boolean") return a;
-			if (a === "true") return !0;
-			if (a === "false") return !1;
+			if(typeof a == "boolean") return a;
+			if(a === "true") return !0;
+			if(a === "false") return !1;
 			throw new Error("should be a boolean!")
 		},
 		V = a => {
-			if (typeof a == "string") return a;
+			if(typeof a == "string") return a;
 			throw new Error("should be a string!")
 		},
 		_ = a => {
-			if (typeof a == "number" && a >= 0) return a;
-			if (typeof a == "string" && (a = parseFloat(a)), isNaN(a) || a < 0) throw new Error("should be a positive number!");
+			if(typeof a == "number" && a >= 0) return a;
+			if(typeof a == "string" && (a = parseFloat(a)), isNaN(a) || a < 0) throw new Error("should be a positive number!");
 			return a
 		},
 		ee = a => {
-			if (typeof a == "boolean" || typeof a == "number") return a;
-			if (a === "true") return !0;
-			if (a === "false") return !1;
-			if (typeof a == "string" && (a = parseFloat(a), !isNaN(a) && a >= 0)) return a;
+			if(typeof a == "boolean" || typeof a == "number") return a;
+			if(a === "true") return !0;
+			if(a === "false") return !1;
+			if(typeof a == "string" && (a = parseFloat(a), !isNaN(a) && a >= 0)) return a;
 			throw new Error("should be a boolean or a positive number!")
 		},
 		H = a => {
-			if (typeof a == "object") return a;
-			if (typeof a == "string") try {
+			if(typeof a == "object") return a;
+			if(typeof a == "string") try {
 				return JSON.parse(a)
 			} catch {
 				return a
@@ -165,61 +165,61 @@
 		                  value: t,
 		                  expanded: e,
 		                  indent: c,
-		                  searchTerm: f,
+		                  searchTerm: r,
 		                  onToggleExpand: d,
-		                  level: i = 0,
+		                  level: s = 0,
 		                  parentRow: x
 	                  }) {
-			let r = document.createElement("div");
-			this.maxLevel = i;
-			let s = Y(t),
-				E = s === "array" || s === "object",
-				u = e === !0 || e > i,
+			let f = document.createElement("div");
+			this.maxLevel = s;
+			let b = Y(t),
+				E = b === "array" || b === "object",
+				u = e === !0 || e > s,
 				m, w, g, p;
-			r.className = `data-row ${u?"expanded":""}`, r.dataset.key = a, r.dataset.level = i, i > 0 && (r.style.paddingLeft = `${c*5}px`);
+			f.className = `data-row ${u?"expanded":""}`, f.dataset.key = a, f.dataset.level = s, s > 0 && (f.style.paddingLeft = `${c*5}px`);
 			let h = document.createElement("span");
-			h.className = "key-value-wrapper", r.appendChild(h);
+			h.className = "key-value-wrapper", f.appendChild(h);
 			let y = () => {
-				r.classList.toggle("expanded"), d && (r.classList.contains("expanded") ? d(i + 1) : d(i))
+				f.classList.toggle("expanded"), d && (f.classList.contains("expanded") ? d(s + 1) : d(s))
 			};
-			if (E) {
+			if(E) {
 				let n = document.createElement("span");
 				n.className = "icon-wrapper", h.appendChild(n), m = document.createElement("span"), m.className = "expand icon clickable", m.setAttribute("title", u ? "Collapse" : "Expand"), n.appendChild(m), m.addEventListener("click", () => y())
 			}
-			if (a !== null && a !== "") {
+			if(a !== null && a !== "") {
 				let n = typeof a;
 				g = document.createElement("span"), g.className = `key clickable ${n==="number"?"number":""}`, g.textContent = n === "number" ? a : `"${a}"`, g.addEventListener("click", () => y()), h.appendChild(g);
-				let b = document.createElement("span");
-				b.classList.add("colon"), b.textContent = ":", h.appendChild(b)
+				let i = document.createElement("span");
+				i.classList.add("colon"), i.textContent = ":", h.appendChild(i)
 			}
-			if (E) {
+			if(E) {
 				let n = document.createElement("span");
-				n.className = "opening-parenthesis", n.textContent = s === "array" ? "[" : "{", h.appendChild(n);
-				let b = document.createElement("span");
-				b.className = "ellipsis clickable", b.textContent = "...", b.addEventListener("click", () => y()), h.appendChild(b);
+				n.className = "opening-parenthesis", n.textContent = b === "array" ? "[" : "{", h.appendChild(n);
+				let i = document.createElement("span");
+				i.className = "ellipsis clickable", i.textContent = "...", i.addEventListener("click", () => y()), h.appendChild(i);
 				let k = document.createElement("span");
-				k.className = "closing-parenthesis", k.textContent = s === "array" ? "]" : "}", h.appendChild(k);
+				k.className = "closing-parenthesis", k.textContent = b === "array" ? "]" : "}", h.appendChild(k);
 				let L = document.createElement("span"),
-					z = s === "array" ? t.length : Object.keys(t).length;
-				L.className = "items-size", L.textContent = `${z} item${z===1?"":"s"}`, h.appendChild(L), w = [], (s === "array" ? t.map(($, N) => N) : Object.keys(t)).forEach($ => {
+					T = b === "array" ? t.length : Object.keys(t).length;
+				L.className = "items-size", L.textContent = `${T} item${T===1?"":"s"}`, h.appendChild(L), w = [], (b === "array" ? t.map((S, N) => N) : Object.keys(t)).forEach(S => {
 					let N = new ae({
-						key: $,
-						value: t[$],
+						key: S,
+						value: t[S],
 						expanded: e,
 						indent: c,
 						onToggleExpand: d,
-						level: i + 1,
-						parentRow: r
+						level: s + 1,
+						parentRow: f
 					});
-					w.push(N), r.appendChild(N.element), this.maxLevel = Math.max(this.maxLevel, N.maxLevel)
+					w.push(N), f.appendChild(N.element), this.maxLevel = Math.max(this.maxLevel, N.maxLevel)
 				});
 				let O = document.createElement("span");
-				O.className = "closing-parenthesis", O.textContent = s === "array" ? "]" : "}", r.appendChild(O)
+				O.className = "closing-parenthesis", O.textContent = b === "array" ? "]" : "}", f.appendChild(O)
 			} else {
 				let n = null;
-				["nan", "NaN", "undefined", "null"].includes(s) || (n = document.createElement("span"), n.className = "type", n.textContent = s.toLowerCase());
-				let b = document.createElement("span");
-				b.className = `value ${s.toLowerCase()}`, p = document.createElement("span"), p.textContent = s === "string" ? `"${t}"` : t, n && b.appendChild(n), b.appendChild(p), h.appendChild(b)
+				["nan", "NaN", "undefined", "null"].includes(b) || (n = document.createElement("span"), n.className = "type", n.textContent = b.toLowerCase());
+				let i = document.createElement("span");
+				i.className = `value ${b.toLowerCase()}`, p = document.createElement("span"), p.textContent = b === "string" ? `"${t}"` : t, n && i.appendChild(n), i.appendChild(p), h.appendChild(i)
 			}
 			let v = document.createElement("span");
 			v.className = "copy icon", v.setAttribute("title", "Copy to clipboard"), v.addEventListener("click", () => {
@@ -227,33 +227,33 @@
 			});
 			let D = document.createElement("span");
 			D.className = "icon-wrapper", D.appendChild(v), h.appendChild(D);
-			let j = n => {
-				let b = new RegExp(n, "gi"),
+			let I = n => {
+				let i = new RegExp(n, "gi"),
 					k = [];
 				g && k.push(g), p && k.push(p);
 				let L = !1;
-				k.forEach(z => {
-					let W = z.textContent;
-					if (z.innerHTML = W, !n || n === "") return;
-					let O = [...W.matchAll(b)].map(P => P.index),
-						$ = [],
+				k.forEach(T => {
+					let W = T.textContent;
+					if(T.innerHTML = W, !n || n === "") return;
+					let O = [...W.matchAll(i)].map(P => P.index),
+						S = [],
 						N = 0;
 					O.forEach(P => {
-						L = !0, $.push(W.slice(N, P)), $.push(`<span class="match">${n}</span>`), N = P + n.length
-					}), $.push(W.slice(N)), z.innerHTML = $.join("")
-				}), L && !r.classList.contains("expanded") && (y(), x && x.classList.add("expanded"))
+						L = !0, S.push(W.slice(N, P)), S.push(`<span class="match">${n}</span>`), N = P + n.length
+					}), S.push(W.slice(N)), T.innerHTML = S.join("")
+				}), L && !f.classList.contains("expanded") && (y(), x && x.classList.add("expanded"))
 			};
 			this.update = ({
 				               expanded: n,
-				               indent: b,
+				               indent: i,
 				               searchTerm: k
 			               }) => {
-				b !== void 0 && i > 0 && (r.style.paddingLeft = `${b*5}px`), n !== void 0 && (u = n === !0 || n > i, r.classList.toggle("expanded", u), m && (m.title = u ? "Collapse" : "Expand")), k != null && j(k), w && w.forEach(L => L.update({
+				i !== void 0 && s > 0 && (f.style.paddingLeft = `${i*5}px`), n !== void 0 && (u = n === !0 || n > s, f.classList.toggle("expanded", u), m && (m.title = u ? "Collapse" : "Expand")), k != null && I(k), w && w.forEach(L => L.update({
 					expanded: n,
-					indent: b,
+					indent: i,
 					searchTerm: k
 				}))
-			}, this.element = r
+			}, this.element = f
 		},
 		te = ae;
 	var ie = function({
@@ -261,19 +261,19 @@
 		                  indent: t,
 		                  onChange: e,
 		                  onSearch: c,
-		                  showDetails: f
+		                  showDetails: r
 	                  }) {
-			this.indent = t || 2, this.expanded = typeof a == "number" ? a : 2, this.showDetails = f || !0, this.maxExpandLevel = 0;
-			let d, i = document.createElement("div");
-			i.className = "toolbar";
+			this.indent = t || 2, this.expanded = typeof a == "number" ? a : 2, this.showDetails = r !== !1, this.maxExpandLevel = 0;
+			let d, s = document.createElement("div");
+			s.className = "toolbar";
 			let x = document.createElement("div");
-			x.className = "options", i.appendChild(x);
-			let r = document.createElement("div");
-			r.className = "search-wrapper", i.appendChild(r);
-			let s = document.createElement("div");
-			s.className = "icon-wrapper clickable", x.appendChild(s);
+			x.className = "options", s.appendChild(x);
+			let f = document.createElement("div");
+			f.className = "search-wrapper", s.appendChild(f);
+			let b = document.createElement("div");
+			b.className = "icon-wrapper clickable", x.appendChild(b);
 			let E = document.createElement("span");
-			E.className = "icon refresh", s.onclick = () => this.refresh(), s.appendChild(E);
+			E.className = "icon refresh", b.onclick = () => this.refresh(), b.appendChild(E);
 			let u = document.createElement("div");
 			u.className = "icon-wrapper clickable", x.appendChild(u);
 			let m = document.createElement("span");
@@ -308,21 +308,23 @@
 			}, y.appendChild(v);
 			let D = document.createElement("div");
 			D.className = "icon-wrapper clickable", x.appendChild(D);
-			let j = document.createElement("span");
-			j.className = `icon info ${this.showDetails?"active":""}`, D.onclick = () => {
-				j.classList.toggle("active"), this.showDetails = !this.showDetails, e({
+			let I = document.createElement("span");
+			I.className = `icon info ${this.showDetails?"active":""}`, D.onclick = () => {
+				I.classList.toggle("active"), this.showDetails = !this.showDetails, e({
 					showDetails: this.showDetails
 				})
-			}, D.appendChild(j);
+			}, D.appendChild(I);
 			let n = document.createElement("span");
-			n.className = "icon search", r.appendChild(n), d = document.createElement("input"), d.className = "search-input", d.placeholder = "Search", d.oninput = b => {
-				c(b.target.value)
-			}, r.appendChild(d), this.refresh = () => {
+			n.className = "icon search", f.appendChild(n), d = document.createElement("input"), d.className = "search-input", d.placeholder = "Search", d.oninput = i => {
+				c(i.target.value)
+			}, f.appendChild(d), this.refresh = () => {
 				this.expanded = 1, this.indent = 2, d && (d.value = ""), e({
 					indent: 2,
 					expanded: 1
 				}), c("")
-			}, this.element = i
+			}, this.updateShowDetails = i => {
+				this.showDetails = i, this.showDetails ? I.classList.add("active") : I.classList.remove("active")
+			}, this.element = s
 		},
 		de = ie;
 
@@ -330,32 +332,32 @@
 		let e = document.createElement("div");
 		e.className = "container", a.appendChild(e);
 		let c = null,
-			f = null,
+			r = null,
 			d = {};
 		this.update = ({
-			               data: i,
+			               data: s,
 			               expanded: x,
-			               indent: r,
-			               expandIconType: s,
+			               indent: f,
+			               expandIconType: b,
 			               showDataTypes: E,
 			               showToolbar: u,
 			               showSize: m,
 			               showCopy: w
 		               }) => {
-			if (i) {
-				let p = JSON.stringify(i);
+			if(s) {
+				let p = JSON.stringify(s);
 				d.dataComapreString !== p && (d.dataComapreString = p, c = new te({
 					key: "",
-					value: i,
+					value: s,
 					expanded: x,
-					indent: r,
+					indent: f,
 					onToggleExpand: h => {
-						f && (f.expanded = h), d.expanded = h
+						r && (r.expanded = h), d.expanded = h
 					}
-				}), e.replaceChildren(c.element), d.showToolbar && f && (e.prepend(f.element), f.maxExpandLevel = c.maxLevel, f.refresh()))
+				}), e.replaceChildren(c.element), d.showToolbar && r && (e.prepend(r.element), r.maxExpandLevel = c.maxLevel, r.refresh()))
 			}
-			if (u !== void 0 && d.showToolbar !== u)
-				if (d.showToolbar = u, u) f || (f = new de({
+			if(u !== void 0 && d.showToolbar !== u)
+				if(d.showToolbar = u, u) r || (r = new de({
 					expanded: d.expanded,
 					indent: d.indent,
 					onChange: ({
@@ -374,12 +376,12 @@
 							searchTerm: p
 						})
 					}
-				})), c && (f.maxExpandLevel = c.maxLevel), e.prepend(f.element);
+				})), c && (r.maxExpandLevel = c.maxLevel), e.prepend(r.element);
 				else {
 					let p = e.querySelector(".toolbar");
 					p && p.remove()
 				} let g = {};
-			x !== void 0 && d.expanded !== x && (d.expanded = x, g.expanded = x), r !== void 0 && d.indent !== r && (d.indent = r, g.indent = r), Object.keys(g).length > 0 && c && c.update(g), w !== void 0 && d.showCopy !== w && (d.showCopy = w, e.classList.toggle("show-copy", w)), m !== void 0 && d.showSize !== m && (d.showSize = m, e.classList.toggle("show-size", m)), E !== void 0 && d.showDataTypes !== E && (d.showDataTypes = E, e.classList.toggle("show-data-types", E)), s !== void 0 && d.expandIconType !== s && (e.classList.add(`expand-icon-${s}`), e.classList.remove(`expand-icon-${d.expandIconType}`), d.expandIconType = s)
+			x !== void 0 && d.expanded !== x && (d.expanded = x, g.expanded = x), f !== void 0 && d.indent !== f && (d.indent = f, g.indent = f), Object.keys(g).length > 0 && c && c.update(g), w !== void 0 && d.showCopy !== w && (d.showCopy = w, e.classList.toggle("show-copy", w)), m !== void 0 && d.showSize !== m && (d.showSize = m, e.classList.toggle("show-size", m), r && r.updateShowDetails(d.showSize || d.showDataTypes)), E !== void 0 && d.showDataTypes !== E && (d.showDataTypes = E, e.classList.toggle("show-data-types", E), r && r.updateShowDetails(d.showSize || d.showDataTypes)), b !== void 0 && d.expandIconType !== b && (e.classList.add(`expand-icon-${b}`), e.classList.remove(`expand-icon-${d.expandIconType}`), d.expandIconType = b)
 		}, this.update(t)
 	}
 	var ce = se;
@@ -394,28 +396,28 @@
 			showSize: !0,
 			data: null
 		},
-		I, l, q, B, A, C, R, M = class extends HTMLElement {
+		A, l, R, B, z, C, j, M = class extends HTMLElement {
 			constructor() {
 				super();
-				S(this, I, void 0);
-				S(this, l, void 0);
-				S(this, q, void 0);
-				S(this, B, void 0);
-				S(this, A, (...e) => {
+				$(this, A, void 0);
+				$(this, l, void 0);
+				$(this, R, void 0);
+				$(this, B, void 0);
+				$(this, z, (...e) => {
 					console.warn(`JsonViewer${this.id?` (${this.id})`:""}:`, ...e)
 				});
-				S(this, C, (e, c, f, d) => {
+				$(this, C, (e, c, r, d) => {
 					try {
-						if (c = f(c), d && !d.includes(c)) throw new Error(`should be one of ${d.join(", ")}`);
-						if (o(this, l)[e] === c) return;
-						o(this, l)[e] = c, o(this, R).call(this)
-					} catch (i) {
-						o(this, A).call(this, `Attribute ${e}: ${i.message}`)
+						if(c = r(c), d && !d.includes(c)) throw new Error(`should be one of ${d.join(", ")}`);
+						if(o(this, l)[e] === c) return;
+						o(this, l)[e] = c, o(this, j).call(this)
+					} catch (s) {
+						o(this, z).call(this, `Attribute ${e}: ${s.message}`)
 					}
 				});
-				S(this, R, () => {
+				$(this, j, () => {
 					o(this, B).update({
-						data: o(this, q),
+						data: o(this, R),
 						expanded: o(this, l).expanded,
 						expandIconType: o(this, l).expandIconType,
 						indent: o(this, l).indent,
@@ -425,14 +427,14 @@
 						showCopy: o(this, l).showCopy
 					})
 				});
-				T(this, l, {
+				q(this, l, {
 					...oe
-				}), T(this, I, document.createElement("style"));
+				}), q(this, A, document.createElement("style"));
 				let e = this.attachShadow({
 						mode: "open"
 					}),
 					c = document.createElement("style");
-				c.textContent = `${K}`, e.appendChild(c), e.appendChild(o(this, I)), this.theme = o(this, l).theme, T(this, B, new ce(e, o(this, l)))
+				c.textContent = `${K}`, e.appendChild(c), e.appendChild(o(this, A)), this.theme = o(this, l).theme, q(this, B, new ce(e, o(this, l)))
 			}
 			static get observedAttributes() {
 				return Object.keys(oe).map(e => e.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase())
@@ -460,22 +462,22 @@
 			}
 			set theme(e) {
 				try {
-					if (e = H(e), o(this, l).theme === e && o(this, I).textContent !== "") return;
-					o(this, I).textContent = Q(e), o(this, l).theme = e
+					if(e = H(e), o(this, l).theme === e && o(this, A).textContent !== "") return;
+					o(this, A).textContent = Q(e), o(this, l).theme = e
 				} catch (c) {
-					o(this, A).call(this, `Attribute theme: ${c.message}`)
+					o(this, z).call(this, `Attribute theme: ${c.message}`)
 				}
 			}
 			set data(e) {
 				try {
 					e = H(e);
 					let c = JSON.stringify(e);
-					if (o(this, l).data === c) return;
-					o(this, l).data = c, X(e) ? fetch(e).then(f => f.json()).then(f => {
-						T(this, q, f), o(this, R).call(this)
-					}) : (T(this, q, e), o(this, R).call(this))
+					if(o(this, l).data === c) return;
+					o(this, l).data = c, X(e) ? fetch(e).then(r => r.json()).then(r => {
+						q(this, R, r), o(this, j).call(this)
+					}) : (q(this, R, e), o(this, j).call(this))
 				} catch (c) {
-					o(this, A).call(this, `Attribute data: ${c.message}`)
+					o(this, z).call(this, `Attribute data: ${c.message}`)
 				}
 			}
 			get options() {
@@ -487,14 +489,14 @@
 					this.textContent = "", e && (this.data = e)
 				})
 			}
-			attributeChangedCallback(e, c, f) {
-				if (M.allowedAttributes.indexOf(e) > -1) {
-					let d = e.replace(/-([a-z])/g, i => i[1].toUpperCase());
-					this[d] = f
-				} else o(this, A).call(this, `Attribute ${e} is not supported and will be ignored!`), this.removeAttribute(e)
+			attributeChangedCallback(e, c, r) {
+				if(M.allowedAttributes.indexOf(e) > -1) {
+					let d = e.replace(/-([a-z])/g, s => s[1].toUpperCase());
+					this[d] = r
+				} else o(this, z).call(this, `Attribute ${e} is not supported and will be ignored!`), this.removeAttribute(e)
 			}
 		},
 		U = M;
-	I = new WeakMap, l = new WeakMap, q = new WeakMap, B = new WeakMap, A = new WeakMap, C = new WeakMap, R = new WeakMap, Z(U, "allowedAttributes", ["id"].concat(M.observedAttributes));
+	A = new WeakMap, l = new WeakMap, R = new WeakMap, B = new WeakMap, z = new WeakMap, C = new WeakMap, j = new WeakMap, Z(U, "allowedAttributes", ["id"].concat(M.observedAttributes));
 	customElements.get("andypf-json-viewer") || customElements.define("andypf-json-viewer", U);
 })();
