@@ -7,10 +7,12 @@ Because log files can only contain strings, it's a common practice to use `json_
 But the resulting JSON is not as readable as it could be when viewing the log in ProcessLogger. The Logs JSON Viewer module uses the [json-viewer](https://github.com/andypf/json-viewer/) library to improve the readability of JSON data in ProcessLogger and add some useful features.
 
 Before:
-![ljv-1](https://github.com/Toutouwai/CustomLogs/assets/1538852/a5f6d9ba-2ea8-45f8-9799-0bf07088d848)
+
+![ljv-1](https://github.com/Toutouwai/LogsJsonViewer/assets/1538852/ecb37114-8e1f-406d-b41e-c580f07a31ab)
 
 After:
-![ljv-2](https://github.com/Toutouwai/CustomLogs/assets/1538852/ab45e02e-5d36-4667-a5bf-849e9517ca42)
+
+![ljv-2](https://github.com/Toutouwai/LogsJsonViewer/assets/1538852/6220be1e-e08b-47bd-8993-084ccd154409)
 
 ## Configuration
 
